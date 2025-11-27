@@ -1,0 +1,100 @@
+{
+  "name": "json-viewer",
+  "version": "1.0.0",
+  "description": "JSON file viewer and MCP server configuration merger - Ver 1.0 (2025-11-04)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "web": "node server.js",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "json",
+    "viewer",
+    "copy",
+    "electron",
+    "mcp",
+    "server",
+    "merger",
+    "configuration"
+  ],
+  "author": "CS",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "playwright": "^1.56.1"
+  },
+  "build": {
+    "appId": "com.cs.jsonviewer",
+    "productName": "JSON Viewer by CS",
+    "files": [
+      "main.js",
+      "preload.js",
+      "server.js",
+      "public/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "fileAssociations": [
+      {
+        "ext": "json",
+        "name": "JSON File",
+        "description": "JSON Document",
+        "role": "Viewer"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "extendInfo": {
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "JSON File",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.json"
+            ]
+          }
+        ]
+      }
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "fileAssociations": [
+        {
+          "ext": "json",
+          "name": "JSON File",
+          "description": "JSON Document"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "mimeTypes": [
+        "application/json"
+      ]
+    }
+  }
+}

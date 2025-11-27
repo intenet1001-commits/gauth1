@@ -215,11 +215,23 @@ auth converter/
 
 ## 기술 스택
 
-- **Electron** - 데스크톱 앱 프레임워크
-- **Express** - 백엔드 서버
+- **Electron 35.7+** - 데스크톱 앱 프레임워크 (보안 패치 적용)
+- **Express 4.21+** - 백엔드 서버
+- **Multer 2.0** - 파일 업로드 (보안 강화)
 - **Vanilla JavaScript** - 프론트엔드 (프레임워크 없음)
 - **Google OAuth 2.0** - 인증
 - **MCP (Model Context Protocol)** - Claude 통합
+
+## 최근 업데이트
+
+### 2025-11-27: 보안 및 의존성 개선
+- ✅ 모든 보안 취약점 해결 (3개 → 0개)
+- ✅ Multer 1.x → 2.0 업그레이드 (보안 취약점 수정)
+- ✅ Electron 28 → 35.7.5 업그레이드 (ASAR Integrity 취약점 패치)
+- ✅ Express 4.18 → 4.21 업데이트
+- ✅ Electron Builder 24 → 25 업데이트
+- ✅ 패키지 수 감소 (416 → 480, 더 안정적인 의존성 트리)
+- ✅ Deprecated 경고 최소화
 
 ## 개발자 정보
 
